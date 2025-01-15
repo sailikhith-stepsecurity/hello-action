@@ -1,0 +1,13 @@
+name: 'Hello Action'
+description: 'A simple GitHub Action that prints the input message'
+author: 'Your Name'
+
+inputs:
+  message:
+    description: 'Message to print'
+    required: false
+    default: 'Hello, World!'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
