@@ -14,10 +14,12 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
+      id-token: write
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Publish Action
-        uses: actions/publish-action@v0.3.0
+        uses: actions/publish-action@v0.0.4
