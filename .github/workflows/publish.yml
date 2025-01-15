@@ -20,6 +20,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Print Source Tag
+        run: |
+          echo "Publishing version: ${{ github.event.release.tag_name || inputs.version }}"
+          echo "Event name: ${{ github.event_name }}"
+          echo "Is release: ${{ github.event_name == 'release' }}"
+          echo "Release tag: ${{ github.event.release.tag_name }}"
+          echo "Manual input: ${{ inputs.version }}"
+
       - name: Publish Action
         uses: actions/publish-action@v0.3.0
         with:
