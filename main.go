@@ -13,5 +13,5 @@ func main() {
 	}
 
 	// Print the input
-	fmt.Printf("Message: %s\n", input)
+	fmt.Printf("Message : %s\n", input)
 }
