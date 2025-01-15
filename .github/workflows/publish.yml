@@ -23,3 +23,5 @@ jobs:
 
       - name: Publish Action
         uses: actions/publish-action@v0.0.4
+        with:
+          source-tag: ${{ github.event.release.tag_name || inputs.version }}
