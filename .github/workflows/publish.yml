@@ -4,12 +4,6 @@ name: Publish Action
 on:
   release:
     types: [published]
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version to publish (e.g., v1.0.0)'
-        required: true
-        type: string
 
 jobs:
   publish:
@@ -20,18 +14,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Print Source Tag
-        run: |
-          echo "Publishing version: ${{ github.event.release.tag_name || inputs.version }}"
-          echo "Event name: ${{ github.event_name }}"
-          echo "Is release: ${{ github.event_name == 'release' }}"
-          echo "Release tag: ${{ github.event.release.tag_name }}"
-          echo "Manual input: ${{ inputs.version }}"
-
       - name: Publish Action
-        uses: actions/publish-action@v0.0.3
-        with:
-          source-tag: ${{ github.event.release.tag_name || inputs.version }}
-          create-major-version-tag: true
-          create-minor-version-tag: true
-          create-patch-version-tag: true
+        uses: actions/publish-immutable-action@0.0.4
