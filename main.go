@@ -13,5 +13,5 @@ func main() {
 	}
 
 	// Print the input
-	fmt.Printf("Message Updated-1: %s\n", input)
+	fmt.Printf("Message Updated from v1.0.2: %s\n", input)
 }
