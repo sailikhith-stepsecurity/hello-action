@@ -12,8 +12,13 @@ jobs:
       id-token: write
       packages: write # Required for ID token authentication
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@v2.11.1
+        with:
+          egress-policy: audit
+
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
       - name: Publish Action
         uses: actions/publish-immutable-action@v0.0.4
