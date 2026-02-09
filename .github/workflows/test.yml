@@ -1,10 +1,10 @@
-name: Publish Action
+name: test Action
 
 on:
   workflow_dispatch:
 
 jobs:
-  publish:
+  test-action:
     runs-on: ubuntu-latest
    
     steps:
